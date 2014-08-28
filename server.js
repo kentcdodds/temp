@@ -3,6 +3,7 @@ var faker = require('faker');
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
+var expressJwt = require('express-jwt');
 
 var jwtSecret = 'jk0238423.j4012';
 var user = {
@@ -14,6 +15,7 @@ var app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(expressJwt({ secret: jwtSecret }).unless({ path: [ '/login' ] }));
 
 app.post('/login', authenticate, function(req, res) {
   var token = jwt.sign({
@@ -31,6 +33,11 @@ app.get('/random-user', function(req, res) {
   user.avatar = faker.Image.avatar();
   res.json(user);
 });
+
+app.get('/me', function(req, res) {
+  res.json(req.user);
+});
+
 
 app.listen(3000, function() {
   console.log('App listening on localhost:3000');
