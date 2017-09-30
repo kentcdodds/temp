@@ -1,4 +1,3 @@
-
 {
   "projectName": "temp",
   "projectOwner": "kentcdodds",
@@ -7,5 +6,18 @@
   ],
   "imageSize": 100,
   "commit": false,
-  "contributors": []
+  "contributors": [
+    {
+      "login": "fred",
+      "name": "Frederico Araujo",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/2520?v=4",
+      "profile": "https://www.omise.co",
+      "contributions": [
+        "doc",
+        "test",
+        "infra",
+        "code"
+      ]
+    }
+  ]
 }
